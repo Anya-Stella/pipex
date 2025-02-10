@@ -6,10 +6,11 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/10 15:01:32 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/10 17:16:08 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+# include "libft.h"
 # include <stdio.h>
 # include <stdbool.h>
 # include <fcntl.h>
