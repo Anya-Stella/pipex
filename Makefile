@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 16:33:54 by tishihar          #+#    #+#              #
-#    Updated: 2025/02/03 16:43:04 by tishihar         ###   ########.fr        #
+#    Updated: 2025/02/11 12:53:20 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME := pipex
 
 # compiler and flags
 CC := cc
-CFLAGS := -Wall -Wextra -Werror
+CFLAGS := -Wall -Wextra -Werror -g3
 
 
 # for dev and debug
@@ -49,15 +49,6 @@ INCLUDES := -I$(INC_DIR) -I$(LIBFT_INC_DIR)
 #===============================================================================
 
 SRCS := \
-	get_next_line.c \
-	get_next_line_utils.c \
-	init_project.c \
-	init_matrix.c \
-	init_width_height.c \
-	draw_line.c \
-	utils.c \
-	test.c \
-	utils_mlx.c \
     main.c \
 
 # replace object (.c → .o)

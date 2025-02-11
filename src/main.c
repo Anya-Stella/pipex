@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 19:02:09 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/10 17:12:00 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/11 14:20:34 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,17 @@ int	main(int ac, char **av)
 
 
 //TODO：　それぞれの関数openとかに対して、エラーハンドリングすること
+
+
+// int	main()
+// {
+// 	t_cmd *test;
+
+
+// 	test = (t_cmd *)ft_calloc(3, sizeof(t_cmd));
+
+// }
+
 
 
 

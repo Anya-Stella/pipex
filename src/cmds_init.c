@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/11 12:21:51 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:33:06 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static	int	init_cmds(t_cmd *cmds, int ac, char **av, int len_cmds)
 		{
 			// splitが失敗した場合、
 			// cmdsのargsに過去に割り当てたsplitの消去とcmds自体の消去を行わなければならない。
-			clean_cmds(cmds);
+			destroy_cmds(cmds);
 			perror("split failed");
 			return (1);
 		}
@@ -58,7 +58,19 @@ int	create_init_cmds(int ac, char **av)
 	return (0);
 }
 
-void	clean_cmds(t_cmd *cmds)
+void	destroy_cmds(t_cmd *cmds)
 {
+	t_cmd	*origin;
 
+	origin = cmds;
+	while (cmds)
+	{
+		// めんばのフリー
+		if (cmds->args)
+			clean_split(cmds->args);
+		if (cmds->path)
+			free(cmds->path);
+		cmds++;
+	}
+	free(origin);
 }
