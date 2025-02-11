@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 16:33:54 by tishihar          #+#    #+#              #
-#    Updated: 2025/02/11 12:53:20 by tishihar         ###   ########.fr        #
+#    Updated: 2025/02/11 15:45:52 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,9 @@ INCLUDES := -I$(INC_DIR) -I$(LIBFT_INC_DIR)
 #===============================================================================
 
 SRCS := \
+	cmds_init.c \
+	cmds_run.c \
+	utils.c \
     main.c \
 
 # replace object (.c → .o)
