@@ -6,13 +6,13 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/10 17:07:46 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/11 15:42:51 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-void	wait_cmds(t_cmd *cmds)
+static	void	wait_cmds(t_cmd *cmds)
 {
 	if (cmds)
 	{
