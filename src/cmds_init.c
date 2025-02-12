@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/11 15:39:47 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:17:01 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,26 +22,26 @@ static	t_cmd	*create_cmds(int len_cmds)
 	return (cmds);
 }
 
-static	int	init_cmds(t_cmd *cmds, int ac, char **av, int len_cmds)
+static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds)
 {
 	av += 2;
 	while (len_cmds--)
 	{
-		*cmds->args = ft_split(*av, ' ');
-		if (*cmds->args == NULL)
+		_cmd->args = ft_split(*av, ' ');
+		if (_cmd->args == NULL)
 		{
 			perror("split failed");
 			return (1);
 		}
-		*cmds->name = *cmds->args[0];// "ls"
-		*cmds->path = NULL;
-		cmds++;
+		_cmd->name = _cmd->args[0];// "ls"
+		_cmd->path = NULL;
+		_cmd++;
 		av++;
 	}
 	return (0);
 }
 
-int	create_init_cmds(int ac, char **av)
+t_cmd	*create_init_cmds(int ac, char **av)
 {
 	t_cmd	*cmds;
 	int		len_cmds;
@@ -49,25 +49,24 @@ int	create_init_cmds(int ac, char **av)
 	len_cmds = ac - 3;
 	cmds = create_cmds(len_cmds);
 	if (!cmds)
-		return (1);
-	if (init_cmds(cmds, ac, av, len_cmds) == 1)
+		return (NULL);
+	if (init_cmds(cmds, av, len_cmds) == 1)
 	{
 		destroy_cmds(cmds);
-		return (1);
+		return (NULL);
 	}
-	return (0);
+	return (cmds);
 }
 
-void	destroy_cmds(t_cmd *cmds)
+void	destroy_cmds(t_cmd *_cmd)
 {
 	t_cmd	*origin;
 
-	origin = cmds;
-	while (cmds)
+	origin = _cmd;
+	while (_cmd->name)
 	{
-		if (cmds->args)
-			clean_split(cmds->args);
-		cmds++;
+		clean_split(_cmd->args);
+		_cmd++;
 	}
 	free(origin);
 }
