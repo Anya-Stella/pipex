@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/11 17:33:55 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:30:13 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,4 +37,4 @@ void	run_cmds(int fd_in, int fd_out, t_cmd *cmds);
 void	clean_split(char **array);
 
 // test
-void	print_cmds(t_cmd *cmds);
+// void	print_cmds(t_cmd *cmds);

@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/11 17:29:36 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 15:29:49 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,6 @@ static	void	wait_cmds(t_cmd *cmds)
 		cmds++;
 	}
 }
-
 
 void	run_cmds(int fd_in, int fd_out, t_cmd *cmds)
 {
