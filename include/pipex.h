@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 15:30:13 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:09:48 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,10 @@
 # include <stdbool.h>
 # include <fcntl.h>
 # include <unistd.h>
-# include <sys/wait.h> 
+# include <sys/wait.h>
+# include <unistd.h>
+
+
 
 typedef struct s_cmd
 {

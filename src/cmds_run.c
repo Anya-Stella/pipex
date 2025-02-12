@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 15:56:46 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 16:39:24 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 // cmdsの数だけ子プロセスをwaitする関数
 static	void	wait_cmds(t_cmd *cmds)
 {
-	if (cmds->name)
+	while (cmds->name)
 	{
 		wait(NULL);
 		cmds++;
