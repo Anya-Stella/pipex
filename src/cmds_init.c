@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 15:17:01 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 19:26:07 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds)
 			return (1);
 		}
 		_cmd->name = _cmd->args[0];// "ls"
-		_cmd->path = NULL;
+		_cmd->path = ft_strjoin("/usr/bin/", _cmd->name); //usr/bin/ls
 		_cmd++;
 		av++;
 	}
