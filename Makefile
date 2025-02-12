@@ -6,7 +6,7 @@
 #    By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/03 16:33:54 by tishihar          #+#    #+#              #
-#    Updated: 2025/02/11 17:30:13 by tishihar         ###   ########.fr        #
+#    Updated: 2025/02/12 15:42:58 by tishihar         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -50,6 +50,7 @@ INCLUDES := -I$(INC_DIR) -I$(LIBFT_INC_DIR)
 
 SRCS := \
 	cmds_init.c \
+	cmds_run.c \
 	utils.c \
 	test.c \
     main.c \
