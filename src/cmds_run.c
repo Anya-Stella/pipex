@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 16:39:24 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:43:44 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ static	void	wait_cmds(t_cmd *cmds)
 }
 
 // fd_inとfd_outを入出力先としてcmds（複数）を実行する関数
-void	run_cmds(int fd_in, int fd_out, t_cmd *cmds)
+void	run_cmds(int fd_in, int fd_out, t_cmd *cmds, char **envp)
 {
 	int		fd_pipe[2];// fd_pipe[0]が出ていく側、fd_pipe[1]が書き込む側
 	int		prev_fd;
@@ -43,7 +43,7 @@ void	run_cmds(int fd_in, int fd_out, t_cmd *cmds)
 		}
 
 		// フォークして、子プロセス側でexecしてくれる関数
-		run_exec();// 入ってくるFD(prev_fd)と書き込むべきFD(fd_pipe[1])がわたされる。
+		run_exec(prev_fd, fd_pipe[1], cmds, envp);// 入ってくるFD(prev_fd)と書き込むべきFD(fd_pipe[1])がわたされる。
 
 		//close
 		close(prev_fd);

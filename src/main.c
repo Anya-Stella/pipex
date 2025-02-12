@@ -6,13 +6,13 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 19:02:09 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 15:46:51 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:43:03 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-int	main(int ac, char **av)
+int	main(int ac, char **av, char **envp)
 {
 	t_cmd	*cmds;
 	int		fd_in;
@@ -40,7 +40,7 @@ int	main(int ac, char **av)
 	fd_out = open(av[ac - 1], O_WRONLY | O_CREAT | O_TRUNC, 0777);
 
 	// run_cmds
-	run_cmds(fd_in, fd_out, cmds);
+	run_cmds(fd_in, fd_out, cmds, envp);
 
 	// cmdsを開放する
 	destroy_cmds(cmds);

@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 16:09:48 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:45:41 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,8 @@ t_cmd	*create_init_cmds(int ac, char **av);
 void	destroy_cmds(t_cmd *cmds);
 
 // cmds_run
-void	run_cmds(int fd_in, int fd_out, t_cmd *cmds);
+void	run_cmds(int fd_in, int fd_out, t_cmd *cmds, char **envp);
+void	run_exec(int fd_in, int fd_out, t_cmd *_cmd, char **envp);
 
 // utils
 void	clean_split(char **array);

@@ -6,14 +6,14 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:58:58 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 16:38:09 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/12 18:44:13 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 // 子プロセスを開き、exec()を実行する関数
-void	run_exec(int fd_in, int fd_out, t_cmd *cmd)
+void	run_exec(int fd_in, int fd_out, t_cmd *_cmd, char **envp)
 {
 	pid_t	pid;
 
@@ -41,7 +41,7 @@ void	run_exec(int fd_in, int fd_out, t_cmd *cmd)
 		}
 
 		// exec
-		execve(cmd->path, cmd->args, NULL);// 環境変数？
+		execve(_cmd->path, _cmd->args, envp);
 
 		// exec失敗してプロセスが終わらない場合
 		perror("execve failed");
