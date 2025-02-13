@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/13 12:20:20 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/13 17:29:30 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,9 @@ void	destroy_cmds(t_cmd *cmds);
 // cmds_run
 void	run_cmds(int fd_in, int fd_out, t_cmd *cmds, char **envp);
 void	run_exec(int fd_in, int *fd_pipe, t_cmd *_cmd, char **envp);
+
+// get_path
+char	*get_path(char **envp, char	*name);
 
 // utils
 void	clean_split(char **array);
