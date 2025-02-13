@@ -6,17 +6,19 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:58:58 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 21:51:48 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:02:59 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
 // 子プロセスを開き、exec()を実行する関数
-void	run_exec(int fd_in, int fd_out, t_cmd *_cmd, char **envp)
+void	run_exec(int fd_in, int *fd_pipe, t_cmd *_cmd, char **envp)
 {
 	pid_t	pid;
+	int		fd_out;
 
+	fd_out = fd_pipe[1];
 	pid = fork();
 	if (pid < 0)
 	{
@@ -26,6 +28,7 @@ void	run_exec(int fd_in, int fd_out, t_cmd *_cmd, char **envp)
 	if (pid == 0)
 	{
 		// いらないFDを閉じる
+		close(fd_pipe[0]);
 		
 
 
@@ -64,7 +67,4 @@ void	run_exec(int fd_in, int fd_out, t_cmd *_cmd, char **envp)
 		perror("execve failed");
 		exit(EXIT_FAILURE);
 	}
-
-	// 親
-	
 }

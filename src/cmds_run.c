@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 18:43:44 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/13 12:20:01 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	run_cmds(int fd_in, int fd_out, t_cmd *cmds, char **envp)
 		}
 
 		// フォークして、子プロセス側でexecしてくれる関数
-		run_exec(prev_fd, fd_pipe[1], cmds, envp);// 入ってくるFD(prev_fd)と書き込むべきFD(fd_pipe[1])がわたされる。
+		run_exec(prev_fd, fd_pipe, cmds, envp);// 入ってくるFD(prev_fd)と書き込むべきFD(fd_pipe[1])がわたされる。
 
 		//close
 		close(prev_fd);
