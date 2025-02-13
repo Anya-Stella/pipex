@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/12 19:26:07 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/13 15:27:55 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ static	t_cmd	*create_cmds(int len_cmds)
 {
 	t_cmd	*cmds;
 
-	cmds = (t_cmd *)ft_calloc(len_cmds + 1, sizeof(t_cmd));// cmd1,cmd2,\0;
+	cmds = (t_cmd *)ft_calloc(len_cmds + 1, sizeof(t_cmd));
 	if (!cmds)
 		return (NULL);
 	return (cmds);
 }
 
+// cmdsを初期化する関数。nameはlsとかcwとか。
 static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds)
 {
 	av += 2;
@@ -33,8 +34,8 @@ static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds)
 			perror("split failed");
 			return (1);
 		}
-		_cmd->name = _cmd->args[0];// "ls"
-		_cmd->path = ft_strjoin("/usr/bin/", _cmd->name); //usr/bin/ls
+		_cmd->name = _cmd->args[0];
+		_cmd->path = ft_strjoin("/usr/bin/", _cmd->name);
 		_cmd++;
 		av++;
 	}
