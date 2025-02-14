@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 13:31:12 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:57:39 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds, char **envp)
 	return (0);
 }
 
+// cmdsを確保し初期化する。
 t_cmd	*create_init_cmds(int ac, char **av, char **envp)
 {
 	t_cmd	*cmds;
