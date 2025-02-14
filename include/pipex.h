@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 14:26:25 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:40:24 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <sys/wait.h>
 # include <unistd.h>
 
-#define EXEPT_CMDS_VOLUME 3;
-#define CMDS_OFFSET 2;
+# define EXEPT_CMDS_VOLUME 3;
+# define CMDS_OFFSET 2;
 
 typedef struct s_cmd
 {

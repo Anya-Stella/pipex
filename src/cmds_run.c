@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 17:06:38 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:39:45 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	run_cmds(int fd_in, int fd_out, t_cmd *cmds, char **envp)
 		run_exec(prev_fd, fd_pipe, cmds, envp);
 		if (prev_fd != -1)
 			close(prev_fd);
-		if (fd_pipe[1] != -1)	
+		if (fd_pipe[1] != -1)
 			close(fd_pipe[1]);
 		prev_fd = fd_pipe[0];
 		cmds++;
