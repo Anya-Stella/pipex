@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/06 16:30:32 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/13 17:29:30 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 12:54:18 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_cmd
 
 
 // cmds_init
-t_cmd	*create_init_cmds(int ac, char **av);
+t_cmd	*create_init_cmds(int ac, char **av, char **envp);
 void	destroy_cmds(t_cmd *cmds);
 
 // cmds_run

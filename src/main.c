@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 19:02:09 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/13 17:30:30 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 12:57:04 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,6 @@ int	main(int ac, char **av, char **envp)
 	int		fd_out;
 
 
-	printf("path is: %s",get_path(envp, "ls"));
-
-
-
-
-
 	// コマンドライン引数チェック
 	if (ac != 5)
 	{
@@ -33,7 +27,7 @@ int	main(int ac, char **av, char **envp)
 	}
 
 	// cmds初期化
-	cmds = create_init_cmds(ac, av);
+	cmds = create_init_cmds(ac, av, envp);
 	if (!cmds)
 	{
 		perror("init cmds failed");
@@ -70,4 +64,6 @@ int	main(int ac, char **av, char **envp)
 
 
 
+// pathの確認用
+// printf("path is: %s \n",get_path(envp, "ls"));
 
