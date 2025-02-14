@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 13:57:39 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 14:26:32 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static	t_cmd	*create_cmds(int len_cmds)
 // cmdsを初期化する関数。nameはlsとかcwとか。
 static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds, char **envp)
 {
-	av += 2;
+	av += CMDS_OFFSET;
 	while (len_cmds--)
 	{
 		_cmd->args = ft_split(*av, ' ');
@@ -48,7 +48,7 @@ t_cmd	*create_init_cmds(int ac, char **av, char **envp)
 	t_cmd	*cmds;
 	int		len_cmds;
 
-	len_cmds = ac - 3;
+	len_cmds = ac - EXEPT_CMDS_VOLUME;
 	cmds = create_cmds(len_cmds);
 	if (!cmds)
 		return (NULL);
