@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/03 19:02:09 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 13:20:40 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 20:01:57 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(int ac, char **av, char **envp)
 	int		fd_in;
 	int		fd_out;
 
-	if (ac != 5)
+	if (ac < 5)
 	{
 		perror("Not enough arguments.");
 		return (1);
