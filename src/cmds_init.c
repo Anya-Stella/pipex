@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 13:23:48 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:31:12 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	destroy_cmds(t_cmd *_cmd)
 	while (_cmd->name)
 	{
 		clean_split(_cmd->args);
-		clean_split(_cmd->path);
+		free(_cmd->path);
 		_cmd++;
 	}
 	free(origin);
