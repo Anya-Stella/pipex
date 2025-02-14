@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/12 15:58:58 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/13 15:24:23 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 19:33:47 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,8 @@ void	run_exec(int fd_in, int *fd_pipe, t_cmd *_cmd, char **envp)
 	}
 	if (pid == 0)
 	{
-		close(fd_pipe[0]);
+		if (fd_pipe[0] != -1)
+			close(fd_pipe[0]);
 		setup_child_fd(fd_in, fd_out);
 		check_fd(fd_in, fd_out);
 		execve(_cmd->path, _cmd->args, envp);
