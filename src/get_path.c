@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/13 16:58:00 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 12:48:40 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:24:37 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,36 +46,19 @@ static	char	*join_path(char *dir, char *name)
 	return (result);
 }
 
-
-
-
-
-
-
-
 // vallidateしてアクセス権があるものを出力する
 static	char	*validate_and_get_path(char **paths, char *name)
 {
 	char	*curr_path;
 
 	curr_path = NULL;
-
-	// "/home/tishihar/bin:/home/tishihar/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g"
-	// このスコープの中で、
-	// １：フルパスをコンカット
-	// ２：精査
-	// ３：クリーン
-
 	while (*paths)
 	{
-		curr_path = join_path(*paths, name); //"/home/tishihar/bin/ls"
+		curr_path = join_path(*paths, name);
 		if (!curr_path)
 			return (NULL);
 		if (access(curr_path, X_OK) == 0)
-		{
-			// うまくいったときの処理
 			return (curr_path);
-		}
 		free(curr_path);
 		paths++;
 	}
@@ -83,31 +66,21 @@ static	char	*validate_and_get_path(char **paths, char *name)
 }
 
 // env変数から実行pathを見つけ出せ
-// row is: "PATH=/home/tishihar/bin:/home/tishihar/bin:/usr/local/sbin:/usr/local/bin:/usr"
-// path is: "/home/tishihar/bin:/home/tishihar/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/g"
+// row is: "PATH=/home/tishihar/bin:/home/tish...
 char	*get_path(char **envp, char	*name)
 {
 	char	**path;
 	char	*result;
 
-	// PATHをgetする
-	// "/home/tishihar/bin", "/usr/local/sbin", ...を取得する。
 	path = ft_split(get_value_by_key(envp, "PATH"), ':');
 	if (!path)
 		return (NULL);
-	
-	
-	// ここからpathを走査して、フルパスを作り、アクセス権限があるかどうかをチェックする。
 	result = validate_and_get_path(path, name);
 	if (!result)
 	{
 		clean_split(path);
 		return (NULL);
 	}
-	
-	
 	clean_split(path);
 	return (result);
 }
-
-

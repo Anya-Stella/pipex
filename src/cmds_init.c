@@ -6,7 +6,7 @@
 /*   By: tishihar <tishihar@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/10 15:32:15 by tishihar          #+#    #+#             */
-/*   Updated: 2025/02/14 13:02:11 by tishihar         ###   ########.fr       */
+/*   Updated: 2025/02/14 13:23:48 by tishihar         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ static	int	init_cmds(t_cmd *_cmd, char **av, int len_cmds, char **envp)
 			return (1);
 		}
 		_cmd->name = _cmd->args[0];
-		_cmd->path = get_path(envp, _cmd->name); // "/usr/bin/ls"になる->これ関数つくるか
+		_cmd->path = get_path(envp, _cmd->name);
 		_cmd++;
 		av++;
 	}
@@ -67,6 +67,7 @@ void	destroy_cmds(t_cmd *_cmd)
 	while (_cmd->name)
 	{
 		clean_split(_cmd->args);
+		clean_split(_cmd->path);
 		_cmd++;
 	}
 	free(origin);
